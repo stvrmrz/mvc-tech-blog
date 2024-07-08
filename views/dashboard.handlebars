@@ -1,0 +1,12 @@
+<h1>Your Dashboard</h1>
+<button id="new-post">New Post</button>
+{{#each posts}}
+    <article>
+        <h2><a href="/post/{{id}}">{{title}}</a></h2>
+        <p>Created on {{createdAt}}</p>
+        <button class="delete-post" data-id="{{id}}">Delete</button>
+        <button class="edit-post" data-id="{{id}}">Edit</button>
+    </article>
+{{else}}
+    <p>No posts yet</p>
+{{/each}}
