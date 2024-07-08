@@ -42,6 +42,3 @@ coverage/
 # Miscellaneous
 *.bak
 *.swp
-
-# Ignore database configuration file
-config/config.json
