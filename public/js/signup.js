@@ -8,16 +8,22 @@ const signupFormHandler = async (event) => {
   console.log('Password:', password);
 
   if (username && password) {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+    try {
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
 
-    if (response.ok) {
-      alert('Sign-up successful! Redirecting to dashboard...');
-      document.location.replace('/dashboard');
-    } else {
+      if (response.ok) {
+        alert('Sign-up successful! Redirecting to dashboard...');
+        document.location.replace('/dashboard');
+      } else {
+        const result = await response.json();
+        alert(`Failed to sign up: ${result.message}`);
+      }
+    } catch (error) {
+      console.error('Error during sign-up:', error);
       alert('Failed to sign up. Please try again.');
     }
   } else {
