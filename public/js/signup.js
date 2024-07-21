@@ -5,9 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
 
-    console.log('Username:', username);
-    console.log('Password:', password);
-
     if (username && password) {
       try {
         const response = await fetch('/api/users', {

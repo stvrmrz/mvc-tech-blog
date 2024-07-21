@@ -1,24 +1,24 @@
 <article>
-    <h1>{{title}}</h1>
-    <p>By {{user.username}} on {{createdAt}}</p>
-    <div>{{content}}</div>
+  <h1>{{title}}</h1>
+  <p>By {{user.username}} on {{createdAt}}</p>
+  <div>{{content}}</div>
 </article>
 <section>
-    <h2>Comments</h2>
-    {{#if loggedIn}}
-        <form id="comment-form" class="comment-form">
-            <textarea id="comment-text" name="comment_text" required></textarea>
-            <input type="hidden" id="post-id" name="post_id" value="{{id}}">
-            <button type="submit">Submit</button>
-        </form>
-    {{else}}
-        <p><a href="/login">Login</a> to leave a comment</p>
-    {{/if}}
-    {{#each comments}}
-        <div>
-            <p>{{user.username}}: {{comment_text}} on {{createdAt}}</p>
-        </div>
-    {{else}}
-        <p>No comments yet</p>
-    {{/each}}
+  <h2>Comments</h2>
+  {{#if loggedIn}}
+    <form id="comment-form" class="comment-form">
+      <textarea id="comment-text" name="comment_text" required></textarea>
+      <input type="hidden" id="post-id" name="post_id" value="{{id}}">
+      <button type="submit">Submit</button>
+    </form>
+  {{else}}
+    <p><a href="/login">Login</a> to leave a comment</p>
+  {{/if}}
+  {{#each comments}}
+    <div>
+      <p>{{user.username}}: {{comment_text}} on {{createdAt}}</p>
+    </div>
+  {{else}}
+    <p>No comments yet</p>
+  {{/each}}
 </section>
