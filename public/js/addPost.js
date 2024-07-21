@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const addPostForm = document.querySelector('.add-post-form');
+  const newPostButton = document.getElementById('new-post');
+  const newPostForm = document.getElementById('new-post-form');
 
-  if (addPostForm) {
-    addPostForm.addEventListener('submit', async (event) => {
+  if (newPostButton && newPostForm) {
+    newPostButton.addEventListener('click', () => {
+      newPostForm.style.display = 'block';
+    });
+
+    newPostForm.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const title = document.querySelector('#post-title').value.trim();
@@ -23,6 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   } else {
-    console.error('Add post form not found');
+    console.error('New post button or form not found');
   }
 });

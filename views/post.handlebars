@@ -6,8 +6,9 @@
 <section>
     <h2>Comments</h2>
     {{#if loggedIn}}
-        <form id="comment-form">
-            <textarea name="comment_text" required></textarea>
+        <form id="comment-form" class="comment-form">
+            <textarea id="comment-text" name="comment_text" required></textarea>
+            <input type="hidden" id="post-id" name="post_id" value="{{id}}">
             <button type="submit">Submit</button>
         </form>
     {{else}}
