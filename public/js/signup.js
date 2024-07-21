@@ -4,6 +4,9 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector('#username-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
+  console.log('Username:', username);
+  console.log('Password:', password);
+
   if (username && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
@@ -17,6 +20,8 @@ const signupFormHandler = async (event) => {
     } else {
       alert('Failed to sign up. Please try again.');
     }
+  } else {
+    alert('Please fill out both fields.');
   }
 };
 
