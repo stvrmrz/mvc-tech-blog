@@ -3,16 +3,21 @@ const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
+    console.log('Sign-up request received:', req.body);
+
     const userData = await User.create(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.loggedIn = true;
 
-      res.status(200).json(userData);
+      console.log('User signed up and logged in:', userData.username);
+
+      res.status(200).json({ message: 'User successfully signed up', user: userData });
     });
   } catch (err) {
-    res.status(500).json(err);
+    console.error('Error during sign-up:', err);
+    res.status(500).json({ message: 'Error signing up', error: err });
   }
 });
 
@@ -43,7 +48,7 @@ router.post('/login', async (req, res) => {
 
   } catch (err) {
     console.error('Error during login:', err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
