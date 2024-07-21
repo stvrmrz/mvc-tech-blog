@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('Signup JS loaded'); // Add this line to check if the script is loaded
+
   const signupFormHandler = async (event) => {
     event.preventDefault();
+    console.log('Form submission prevented'); // Add this line to check if the form submission is prevented
 
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
@@ -32,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const signupForm = document.querySelector('.signup-form');
   if (signupForm) {
     signupForm.addEventListener('submit', signupFormHandler);
+    console.log('Signup form event listener added'); // Add this line to check if the event listener is added
   } else {
     console.error('Sign-up form not found');
   }
