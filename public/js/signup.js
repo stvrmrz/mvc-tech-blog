@@ -29,5 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+  const signupForm = document.querySelector('.signup-form');
+  if (signupForm) {
+    signupForm.addEventListener('submit', signupFormHandler);
+  } else {
+    console.error('Sign-up form not found');
+  }
 });
